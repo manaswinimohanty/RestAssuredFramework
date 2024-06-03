@@ -18,13 +18,30 @@
         <lombokVersion>1.18.32</lombokVersion>
         <awaitilityVersion>4.2.1</awaitilityVersion>
         <gsonVersion>2.10.1</gsonVersion>
-        <extentreportsVersion>5.1.1</extentreportsVersion>
-        <javafakerVersion>1.0.2</javafakerVersion>
+        <datafakerVersion>2.2.2</datafakerVersion>
         <apachecommons>3.14.0</apachecommons>
         <apachepoixml>5.2.5</apachepoixml>
+        <javersCore>7.4.2</javersCore>
 
 
     </properties>
+    <!-- maven-surefire-plugin handles [unit] test execution and failing the build process if there are test failures -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <forkCount>0</forkCount>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
 
         <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
@@ -69,12 +86,12 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
         <dependency>
-            <groupId>com.github.javafaker</groupId>
-            <artifactId>javafaker</artifactId>
-            <version>${javafakerVersion}</version>
+            <groupId>net.datafaker</groupId>
+            <artifactId>datafaker</artifactId>
+            <version>${datafakerVersion}</version>
         </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
@@ -97,13 +114,18 @@
             <version>5.2.5</version>
         </dependency>
 
-
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
-            <version>${extentreportsVersion}</version>
+            <version>5.1.1</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.javers/javers-core -->
+        <dependency>
+            <groupId>org.javers</groupId>
+            <artifactId>javers-core</artifactId>
+            <version>${javersCore}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
